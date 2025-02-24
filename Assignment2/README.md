@@ -5,8 +5,15 @@ This assessment provides a comprehensive evaluation of my knowledge in Data Mini
 ## What I Know
 My strongest competencies include:
 
-### 
+### Database Design and Management
+* EER Diagrams
+* ER Models
+* Normalization
+* Relationships (one-to-many, many-to-many, etc.)
 
+<b>Sample Work:</b>
+
+<b>Sources Consulted:</b> 
 
 ### 
 
