@@ -11,7 +11,7 @@ My strongest competencies include:
 * Normalization
 * Relationships (one-to-many, many-to-many, etc.)
 
-<b>Sample Work:</b>
+<b>Sample Work:</b> [Example One](FinalABC.drawio.pdf) [Example Two](Homework3.pdf)
 
 <b>Sources Consulted:</b> 
 
