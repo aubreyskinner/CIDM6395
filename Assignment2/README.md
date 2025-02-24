@@ -13,13 +13,15 @@ My strongest competencies include:
 
 <b>Sample Work:</b> [Example One](FinalABC.drawio.pdf) [Example Two](Homework3.pdf)
 
-<b>Sources Consulted:</b> 
+<b>Sources Consulted:</b> Drawio and Figma
 
-### 
+### Model Comparisons
+* Comparing Classification Models
+* Evaluating Clustering Performance
 
-<b>Sample Work:</b>
+<b>Sample Work:</b> [Example Three](ModelComparisons.xlsx)
 
-<b>Sources Consulted:</b> 
+<b>Sources Consulted:</b> Microsoft Excel, RapidMiner, R
 
 ### 
 
