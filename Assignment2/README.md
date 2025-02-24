@@ -23,29 +23,29 @@ My strongest competencies include:
 
 <b>Sources Consulted:</b> Microsoft Excel, RapidMiner, R
 
-### 
-
-### 
-
-<b>Sample Work:</b>
-
-<b>Sources Consulted:</b> 
+### Data Subsetting and Sampling
+* Filtering
+* Splitting
+* Stratified Sampling
 
 ## Where I Am Weak
 Areas I need to improve and strategies used to bridge the gaps:
 
-### 1. 
+### 1. Advanced SQL
+I can remedy this by utlizing: 
+* DataCamp Courses 
+* Khan Academy
+* Jose Portilla's course, "The Complete SQL Bootcamp 2020: Go from Zero to Hero"
 
-### 2. 
+### 2. Decision Trees
+Specifically, pruning and parameter tuning techniques.
 
-### 3. 
-
-### 4.
+### 3. Making Pivot Tables using Data from RapidMiner
 
 ## What I Wish I Knew 
 These are skills I recognize as valuable, but have not yet fully developed:
 
-### 1.
+### 1. 
 
 ### 2. 
 
