@@ -5,15 +5,12 @@ This assessment provides a comprehensive evaluation of my knowledge in Networkin
 ## What I Know
 My strongest competencies include:
 
-### 
-* 
-* 
-* 
-* 
+### Security Auditing
+* Performed a security audit for a local company
+* Gained hands-on experience on how to investigate security practices
+* Identified vulnerabilities and provided recommendations 
 
-<b>Sample Work:</b> [Example One]() [Example Two]()
-
-<b>Sources Consulted:</b> 
+<b>Sample Work:</b> [Example One]()
 
 ### 
 * 
