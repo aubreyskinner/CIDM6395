@@ -1,7 +1,6 @@
 ## Introduction
 This assessment provides a comprehensive evaluation of my knowledge in Software Systems. I will examine areas where I am proficient, areas needing improvement, and gaps in my capabilities that I hope to fill. Supporting evidence, including examples of my previous work and resources I have utilized, will reinforce this evaluation. Furthermore, I will assess how Software Systems integrate with broader domains and explore its practical applications. Throughout my education, I have developed a strong foundation in various techniques, tools, and methodologies, and this assessment serves as an opportunity to reflect on my progress. 
 
-
 ## What I Know
 My strongest competencies include:
 
@@ -58,13 +57,13 @@ These are skills I recognize as valuable, but have not yet fully developed:
 * I understand basic loops and conditionals but lack experience in the larger world of algorithms
 
 ## Summary Statement and Preparedness 
- 
+Throughout my academic career, I have gained strong foundational knowledge along with hands-on experience in Software Systems. I have a main focus on database management, API development, and software design. While proficient in several core areas, I recognize that I have the opportunity to improve in testing, version control, and documentation. I appreciate more advanced topics such as cloud computing and machine learning; gaining skills in these areas would promote my adaptability and allow me to become better equipped for more complex projects.
 
 ## Why Software Systems are Integratable with Other Areas
-
+Software Systems act as a backbone for virtually all applications. We use them in healthcare, online shopping, finance, and so much more. Their ability to handle large amounts of data and integrate with other systems makes them highly flexible for various domains. 
 
 ## How Software Systems are Integratable with Other Areas
- 
+Software Systems can integrate with other areas such as data analytics, machine learning, and business intelligence. For example, integrating a healthcare application with a data analytics platform can provide patient insights. Software Systems can connect with external systems and data sources and this makes them incredibly functional. 
 
 ## How Software Systems are Integratable with My Prior Work
- 
+In previous projects, I have developed systems that require interaction with databases and external data sources. For example, in my vital sign documentation API, I used MySQL to store and retrieve patient data, which could even be expanded to integrate with machine learning models in the future. The experience I have gained from working on this project has provided me with a vast array of skills that can evolve as my expertise grows. 
