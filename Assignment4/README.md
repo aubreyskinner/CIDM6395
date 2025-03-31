@@ -10,7 +10,7 @@ My strongest competencies include:
 * Gained hands-on experience on how to investigate security practices
 * Identified vulnerabilities and provided recommendations 
 
-<b>Sample Work:</b> [Example One](OSR Audit Plan.docx)
+<b>Sample Work:</b> [Example One](OSRAuditPlan.docx)
 
 ### 
 * 
