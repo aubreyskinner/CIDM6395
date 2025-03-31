@@ -1,7 +1,6 @@
 ## Introduction
 This assessment provides a comprehensive evaluation of my knowledge in Networking and Cybersecurity. I will examine areas where I am proficient, areas needing improvement, and gaps in my capabilities that I hope to fill. Supporting evidence, including examples of my previous work and resources I have utilized, will reinforce this evaluation. Furthermore, I will assess how Networking and Cybersecurity integrates with broader domains and explore its practical applications. Throughout my education, I have developed a strong foundation in various techniques, tools, and methodologies, and this assessment serves as an opportunity to reflect on my progress. 
 
-
 ## What I Know
 My strongest competencies include:
 
@@ -12,13 +11,13 @@ My strongest competencies include:
 
 <b>Sample Work:</b> [Example One](OSRAuditPlan.docx)
 
-### 
-* 
-* 
+### Network Monitoring
+* Utilized network monitoring tools to capture and analyze traffic
+* Investigated network anomalies
 
-<b>Sample Work:</b> [Example Three]()
+<b>Sample Work:</b> [Example Two]()
 
-<b>Sources Consulted:</b> 
+<b>Sources Consulted:</b> Wireshark User Guide
 
 ### 
 * 
