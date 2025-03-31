@@ -15,7 +15,7 @@ My strongest competencies include:
 * Utilized network monitoring tools to capture and analyze traffic
 * Investigated network anomalies
 
-<b>Sample Work:</b> [Example Two]()
+<b>Sample Work:</b> [Example Two](ResearchReport2.docx)
 
 <b>Sources Consulted:</b> Wireshark User Guide
 
