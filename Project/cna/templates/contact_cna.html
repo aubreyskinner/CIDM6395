@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Send Request for Service</h1>
+
+  <p>Send a service request to {{ cna.first_name }} {{ cna.last_name }}.</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Send Request</button>
+  </form>
+
+{% endblock %}

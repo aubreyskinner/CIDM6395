@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Welcome · Linkella{% endblock %}
+
+{% block content %}
+  <div class="home-content">
+    <h1 class="logo">Welcome to <span class="brand-name">Linkella</span></h1>
+    <p class="tagline">Connecting care with compassion and simplicity.</p>
+
+  
+    <div class="cta-section">
+      <a href="{% url 'services' %}" class="cta-btn">Explore Our Services</a>
+    </div>
+  </div>
+{% endblock %}

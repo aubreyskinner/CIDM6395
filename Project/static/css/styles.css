@@ -1,0 +1,142 @@
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1;
+    padding-bottom: 20px; /* optional extra space under content */
+  }
+  
+.site-nav {
+    background-color: #4a90e2;
+  }
+  
+  .site-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    justify-content: center;
+  }
+  
+  .site-nav li {
+    margin: 0 1rem;
+  }
+  
+  .site-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  .site-nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .home-content {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  
+  .home-content .logo {
+    font-size: 3rem;
+    color: #333;
+  }
+  
+  .home-content .brand-name {
+    color: #4a90e2;
+  }
+  
+  .home-content .tagline {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  .cta-section {
+    margin-top: 30px;
+  }
+  
+  .cta-btn {
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .cta-btn:hover {
+    background-color: #357ab7;
+  }
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .cna-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .cna-card {
+    background-color: #ffffff;
+    border: 2px solid #ddd;           /* Thicker, visible border */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 
+      transform 0.3s ease-in-out,     /* smooth lift */
+      border-color 0.3s ease,         /* border color change */
+      box-shadow 0.3s ease;           /* shadow change */
+  }
+  
+  .cna-card:hover {
+    transform: translateY(-8px);
+    border-color: #4a90e2;            /* highlight border on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* deeper shadow */
+    background-color: #f0f8ff;        /* very light blue background */
+  }
+  
+  
+  .cna-card h2 {
+    margin-top: 0;
+    color: #006d77;
+    font-size: 1.4rem;
+  }
+  
+  .cna-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+  .cna-container .cna-card {
+    background-color: #ffffff;
+    border: 2px solid #ddd !important;           /* Added !important */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 
+      transform 0.3s ease-in-out,     /* smooth lift */
+      border-color 0.3s ease,         /* border color change */
+      box-shadow 0.3s ease;           /* shadow change */
+  }
+  
+  .cna-container .cna-card:hover {
+    transform: translateY(-8px);
+    border-color: #4a90e2 !important;            /* Added !important */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff;       
+  }
+  

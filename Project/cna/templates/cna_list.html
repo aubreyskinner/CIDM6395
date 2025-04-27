@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="page-title">Available CNAs</h1>
+
+<div class="cna-container">
+    {% for cna in cnas %}
+    <a href="{% url 'contact_cna' cna.id %}" class="cna-link">
+        <div class="cna-card">
+            <h2>{{ cna.first_name }} {{ cna.last_name }}</h2>
+            <p><strong>Email:</strong> {{ cna.email }}</p>
+            <p><strong>Phone:</strong> {{ cna.phone_number }}</p>
+            <p><strong>Hourly Rate:</strong> ${{ cna.hourly_rate }}</p>
+            <p><strong>Experience:</strong> {{ cna.experience }}</p>
+            <p><strong>Location:</strong> {{ cna.location }}</p>
+            <p><strong>Availability:</strong> {{ cna.availability|json_script:"availability" }}</p>
+        </div>
+    </a>
+    {% empty %}
+    <p>No CNAs are currently available.</p>
+    {% endfor %}
+</div>
+{% endblock %}
