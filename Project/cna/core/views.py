@@ -36,7 +36,7 @@ def contact_cna(request, cna_id):
     cna = get_object_or_404(CNA, pk=cna_id)
     return render(request, 'contact_cna.html', {'cna': cna})
 
-def contact_cna(request, cna_id):
+# def contact_cna(request, cna_id):
     cna = get_object_or_404(CNA, pk=cna_id)
 
     if request.method == 'POST':
@@ -51,5 +51,5 @@ def contact_cna(request, cna_id):
 
     return render(request, 'contact_cna.html', {'cna': cna})
 
-def success(request):
+# def success(request):
     return render(request, 'success.html')
