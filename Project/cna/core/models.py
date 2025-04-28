@@ -1,10 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
+
 class User(AbstractUser):
     is_cna = models.BooleanField(default=False)
     is_client = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 class ClientProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     preferences = models.TextField(blank=True)
@@ -23,3 +27,12 @@ class CNA(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+    
+class Notification(models.Model):
+    user       = models.ForeignKey(User, on_delete=models.CASCADE)
+    message    = models.TextField()
+    timestamp  = models.DateTimeField(auto_now_add=True)
+    is_read    = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Notification for {self.user.username}: {self.message[:20]}"

@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
+{% block title %}Request Service — {{ cna.first_name }}{% endblock %}
+
 {% block content %}
-  <h1>Send Request for Service</h1>
+  <div class="home-content">
+    <h1>Send Request for Service</h1>
+    <p>Click the button below to submit your request.  
+       {{ cna.first_name }} will see this on their Notifications page.</p>
 
-  <p>Send a service request to {{ cna.first_name }} {{ cna.last_name }}.</p>
-
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Send Request</button>
-  </form>
-
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="cta-btn">Submit Request</button>
+    </form>
+  </div>
 {% endblock %}

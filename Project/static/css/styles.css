@@ -1,142 +1,202 @@
+/* === Global Styles === */
 html, body {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  main {
-    flex: 1;
-    padding-bottom: 20px; /* optional extra space under content */
-  }
-  
-.site-nav {
-    background-color: #4a90e2;
-  }
-  
-  .site-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    justify-content: center;
-  }
-  
-  .site-nav li {
-    margin: 0 1rem;
-  }
-  
-  .site-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-  }
-  
-  .site-nav a:hover {
-    text-decoration: underline;
-  }
-  
-  .home-content {
-    text-align: center;
-    padding: 4rem 1rem;
-  }
-  
-  .home-content .logo {
-    font-size: 3rem;
-    color: #333;
-  }
-  
-  .home-content .brand-name {
-    color: #4a90e2;
-  }
-  
-  .home-content .tagline {
-    font-size: 1.5rem;
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  .cta-section {
-    margin-top: 30px;
-  }
-  
-  .cta-btn {
-    background-color: #4a90e2;
-    color: white;
-    text-decoration: none;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  .cta-btn:hover {
-    background-color: #357ab7;
-  }
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
 
-  .page-title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .cna-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .cna-card {
-    background-color: #ffffff;
-    border: 2px solid #ddd;           /* Thicker, visible border */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 
-      transform 0.3s ease-in-out,     /* smooth lift */
-      border-color 0.3s ease,         /* border color change */
-      box-shadow 0.3s ease;           /* shadow change */
-  }
-  
-  .cna-card:hover {
-    transform: translateY(-8px);
-    border-color: #4a90e2;            /* highlight border on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* deeper shadow */
-    background-color: #f0f8ff;        /* very light blue background */
-  }
-  
-  
-  .cna-card h2 {
-    margin-top: 0;
-    color: #006d77;
-    font-size: 1.4rem;
-  }
-  
-  .cna-card p {
-    margin: 8px 0;
-    line-height: 1.5;
-  }
-  .cna-container .cna-card {
-    background-color: #ffffff;
-    border: 2px solid #ddd !important;           /* Added !important */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 
-      transform 0.3s ease-in-out,     /* smooth lift */
-      border-color 0.3s ease,         /* border color change */
-      box-shadow 0.3s ease;           /* shadow change */
-  }
-  
-  .cna-container .cna-card:hover {
-    transform: translateY(-8px);
-    border-color: #4a90e2 !important;            /* Added !important */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #f0f8ff;       
-  }
-  
+main {
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+/* === Navigation === */
+.site-nav {
+  background-color: #4a90e2;
+}
+
+.site-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.site-nav li {
+  margin: 0 1rem;
+}
+
+.site-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+/* === Home Page Content === */
+.home-content {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.home-content .logo {
+  font-size: 3rem;
+  color: #333;
+}
+
+.home-content .brand-name {
+  color: #4a90e2;
+}
+
+.home-content .tagline {
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+.cta-section {
+  margin-top: 30px;
+}
+
+.cta-btn-primary {
+  background-color: #4a90e2;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-btn-primary:hover {
+  background-color: #357ab7;
+}
+
+/* === Page Titles === */
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* === CNA Cards === */
+.cna-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.cna-card {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cna-card:hover {
+  transform: translateY(-8px);
+  border-color: #4a90e2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
+}
+
+.cna-card h2 {
+  margin-top: 0;
+  color: #006d77;
+  font-size: 1.4rem;
+}
+
+.cna-card p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* === Forms (Register/Login) === */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.form-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 16px;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Form-specific CTA button */
+.cta-btn-form {
+  width: 60%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cta-btn-form:hover {
+  background-color: #45a049;
+}
+
+.form-container p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* === Radio Buttons === */
+.form-group input[type="radio"] {
+  margin-right: 8px;
+}
+
+.form-group .form-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}

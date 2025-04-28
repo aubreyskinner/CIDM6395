@@ -1,5 +1,4 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
-</head>
 <body class="home-container">
   <header>
     <nav class="site-nav">
@@ -19,6 +17,22 @@
         <li><a href="{% url 'services' %}">Services</a></li>
         <li><a href="{% url 'cna_list' %}">Available CNAs</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'notifications' %}">Notifications</a></li>
+          <form action="{% url 'logout' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <li><button type="submit" style="background:none; border:none; color:blue; cursor:pointer;">Log Out</button></li>
+          </form>
+          <li>Logged in as {{ user.username }}</li>
+        {% else %}
+          <li><a href="{% url 'register' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Log In</a></li>{% endif %}
+          {% if user.user_type == 'CNA' %}
+          <li><a href="{% url 'create_listing' %}">Create Listing</a></li>
+        {% elif user.user_type == 'Looking for Care' %}
+          <li><a href="{% url 'available_cnas' %}">Browse Available CNAs</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
@@ -27,6 +41,26 @@
     {% block content %}{% endblock %}
   </main>
 
+  {% block scripts %}
+  <script>
+    function updateNotificationBadge() {
+      fetch('/api/unread-notifications/')
+        .then(response => response.json())
+        .then(data => {
+          const unreadCount = data.unread_count;
+          if (unreadCount > 0) {
+            document.title = `Notifications (${unreadCount})`;
+          } else {
+            document.title = 'Linkella';
+          }
+        });
+    }
 
+    // Initial run to set the title
+    updateNotificationBadge();
+    // Update every 30 seconds
+    setInterval(updateNotificationBadge, 30000);
+  </script>
+  {% endblock %}
 </body>
 </html>

@@ -1,10 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Contact · Linkella{% endblock %}
+
+{% block title %}Request Service — {{ cna.first_name }}{% endblock %}
 
 {% block content %}
   <div class="home-content">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:support@linkella.com">support@linkella.com</a></p>
-    <p>Phone: (123) 456‑7890</p>
+    <h1>Send Request for Service</h1>
+    <p>Click the button below to submit your request.  
+       {{ cna.first_name }} will see this on their Notifications page.</p>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="cta-btn">Submit Request</button>
+    </form>
   </div>
 {% endblock %}

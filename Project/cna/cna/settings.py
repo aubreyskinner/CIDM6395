@@ -130,3 +130,10 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
+
+DEFAULT_FROM_EMAIL = 'you@example.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# …plus your SMTP settings (EMAIL_HOST, EMAIL_PORT, etc.)
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/notifications/'   # where to go after a successful login
+LOGOUT_REDIRECT_URL = 'home'

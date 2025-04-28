@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+  <div class="home-content">
+    <h1>Log In</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div>
+        <label for="id_username">Username:</label><br>
+        {{ form.username }}
+      </div>
+      <div>
+        <label for="id_password">Password:</label><br>
+        {{ form.password }}
+      </div>
+      <button type="submit" class="cta-btn">Log In</button>
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
+  </div>
+{% endblock %}

@@ -148,3 +148,124 @@ html, body {
     background-color: #f0f0f0;
     transition: background-color 0.3s;
 }
+/* Wrapper to help with centering */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Ensure no extra space */
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px; /* A max width for the form */
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.form-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.cta-btn {
+  width: 60%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cta-btn:hover {
+  background-color: #45a049;
+}
+
+.form-container p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.signup-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Form Inputs */
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form input,
+.signup-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Submit Button */
+.signup-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.signup-btn:hover {
+  background-color: #218838;
+}
+
+/* Add responsiveness for small screens */
+@media (max-width: 600px) {
+  .signup-container {
+    padding: 20px;
+  }
+}

@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from core.views import home, about, services, contact
+from core import views as core_views
 
 urlpatterns = [
     path('', home, name='home'),
@@ -25,4 +26,15 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('admin/', admin.site.urls),
     path('api/', include('core.urls')),
+
+    path('notifications/', core_views.notification_page,      name='notifications'),
+    path('api/unread-notifications/', core_views.unread_notification_count, name='unread_notification_count'),
+
+
+    path('api/', include('core.urls')),
+
+   
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    path('admin/', admin.site.urls),
 ]
