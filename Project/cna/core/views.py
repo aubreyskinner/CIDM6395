@@ -94,38 +94,54 @@ def unread_notification_count(request):
     count = Notification.objects.filter(user=request.user, is_read=False).count()
     return JsonResponse({'unread_count': count})
 
-class CustomUserCreationForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2')
+from django.contrib.auth import login
 
 def register(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Log the user in after successful registration
+            login(request, user)
+            
+            # Capture and print the account_type value
+            account_type = form.cleaned_data.get('account_type')
+            print(f"Account Type selected: {account_type}")  # Debug print
 
-            # Redirect based on user profile type
-            if user.user_type == 'CNA':  # Check if user selected 'CNA' profile
-                return redirect('home')  # Redirect to home page (or a specific page like create listing if needed)
+            # Now handle different types based on the selected account type
+            if account_type == 'CNA':
+                user.is_cna = True
+                user.is_client = False
+                user.save()
+                return redirect('cna_dashboard')
+            elif account_type == 'Client':
+                user.is_cna = False
+                user.is_client = True
+                user.save()
+                return redirect('client_dashboard')
             else:
-                return redirect('home')  # Redirect to home page (or another page if needed)
+                print("Unexpected account type: ", account_type)
+                return redirect('home')
+        else:
+            print("Form errors:", form.errors)  # Print errors to debug
+
     else:
         form = CustomUserCreationForm()
 
     return render(request, 'registration/register.html', {'form': form})
+@login_required
+def cna_dashboard(request):
+    return render(request, 'cna_dashboard.html')  # Show CNA specific content
 
+@login_required
+def client_dashboard(request):
+    return render(request, 'client_dashboard.html')  # Show Client specific content
+
+@login_required
 def create_listing(request):
-    if request.user.user_type == 'CNA':
-        # Logic to create a listing for CNAs
-        return render(request, 'create_listing.html')
-    else:
-        return redirect('home')  # If not a CNA, redirect to home
+    # Logic for creating a listing
+    return render(request, 'create_listing.html')
 
-def available_cnas(request):
-    if request.user.user_type == 'Looking for Care':
-        # Logic to show available CNAs
-        return render(request, 'available_cnas.html')
-    else:
-        return redirect('home')  # If not 'Looking for Care', redirect to home
+@login_required
+def cna_list(request):
+    # Logic for showing available CNAs
+    return render(request, 'cna_list.html')

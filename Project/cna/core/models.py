@@ -8,7 +8,8 @@ class User(AbstractUser):
     is_client = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return self.username
+
 class ClientProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     preferences = models.TextField(blank=True)

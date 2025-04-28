@@ -1,12 +1,19 @@
 from django import forms
-from .models import User
+from .models import User  # Import your custom User model
 from django.contrib.auth.forms import UserCreationForm
 
 class CustomUserCreationForm(UserCreationForm):
+    account_type = forms.ChoiceField(
+        choices=[('CNA', 'I am a CNA (create a listing)'), ('Client', 'I am looking for care (browse CNAs)')],
+        required=True,
+        widget=forms.RadioSelect,
+        label="Account Type"
+    )
+
     class Meta:
-        model = User
-        fields = ['username', 'email', 'password1', 'password2', 'is_cna', 'is_client']
-        
+        model = User  # Reference your custom User model here
+        fields = ['username', 'password1', 'password2', 'account_type']
+
     # Add custom logic for password fields
     password1 = forms.CharField(
         widget=forms.PasswordInput(),
@@ -19,15 +26,10 @@ class CustomUserCreationForm(UserCreationForm):
     
     def clean(self):
         cleaned_data = super().clean()
-        is_cna = cleaned_data.get("is_cna")
-        is_client = cleaned_data.get("is_client")
-        
-        # Ensure that the user can only select one profile type: CNA or Client
-        if is_cna and is_client:
-            raise forms.ValidationError("A user cannot be both a CNA and a Client.")
+        account_type = cleaned_data.get("account_type")
         
         # Ensure that at least one profile type is selected
-        if not is_cna and not is_client:
+        if not account_type:
             raise forms.ValidationError("Please select at least one profile type: CNA or Client.")
         
         return cleaned_data

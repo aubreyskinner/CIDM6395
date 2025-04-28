@@ -21,5 +21,9 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('register/', views.register, name='register'),
+    path('cna-dashboard/', views.cna_dashboard, name='cna_dashboard'),
+    path('client-dashboard/', views.client_dashboard, name='client_dashboard'),
+    path('create-listing/', views.create_listing, name='create_listing'),
+    path('', views.home, name='home'),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

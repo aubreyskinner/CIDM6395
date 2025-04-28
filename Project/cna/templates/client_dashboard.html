@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Client Dashboard{% endblock %}
+
+{% block content %}
+    <div class="dashboard-wrapper">
+        <div class="dashboard-content">
+            <h2>Welcome to Your Client Dashboard</h2>
+            <p>Here you can browse available CNAs for your care needs.</p>
+            
+            <!-- Explore Button -->
+            <a href="{% url 'home' %}" class="cta-btn">Explore Care Options</a>
+        </div>
+    </div>
+{% endblock %}

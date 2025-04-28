@@ -7,28 +7,22 @@
         <form method="POST" action="/register/">
             {% csrf_token %}
             
-            <!-- First Name -->
+            <!-- Username -->
             <div class="form-group">
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name" required>
-            </div>
-
-            <!-- Last Name -->
-            <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" required>
-            </div>
-
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
 
             <!-- Password -->
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password1">Password:</label>
+                <input type="password" id="password1" name="password1" required>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="password2">Confirm Password:</label>
+                <input type="password" id="password2" name="password2" required>
             </div>
 
             <!-- Choose Profile Type -->
@@ -49,7 +43,7 @@
         </form>
 
         <p>Already have an account? <a href="/accounts/login/">Login here</a>.</p>
-
     </div>
 </div>
 {% endblock %}
+
