@@ -37,3 +37,16 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"Notification for {self.user.username}: {self.message[:20]}"
+    
+class CNAListing(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=15)
+    hourly_rate = models.DecimalField(max_digits=5, decimal_places=2)
+    experience = models.TextField()
+    location = models.CharField(max_length=255)
+    availability = models.TextField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.location}"

@@ -3,6 +3,7 @@ from .models import CNA, ClientProfile
 from .serializers import CNASerializer, ClientProfileSerializer
 from django.shortcuts import render
 from .models import CNA
+from .models import CNAListing
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail
 from django.conf import settings
@@ -13,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.contrib.auth import login
+from .forms import CNAListingForm
 
 
 
@@ -145,3 +147,44 @@ def create_listing(request):
 def cna_list(request):
     # Logic for showing available CNAs
     return render(request, 'cna_list.html')
+
+from django.shortcuts import render, redirect
+from .models import CNAListing
+from .forms import CNAListingForm
+
+def create_listing(request):
+    if request.method == 'POST':
+        form = CNAListingForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the new CNAListing object
+            return redirect('cna_list')  # Redirect to the list of CNAs
+    else:
+        form = CNAListingForm()
+    
+    return render(request, 'create_listing.html', {'form': form})
+
+
+def cna_list(request):
+    cnas = CNAListing.objects.all()  # Fetch all CNA listings from the database
+    return render(request, 'cna_list.html', {'cnas': cnas})
+
+def cna_list(request):
+    # Get filter parameters from GET request
+    location_filter = request.GET.get('location', '')
+    experience_filter = request.GET.get('experience', '')
+    hourly_rate_filter = request.GET.get('hourly_rate', '')
+
+    # Apply filters to the query if the filters are provided
+    cnas = CNAListing.objects.all()
+
+    if location_filter:
+        cnas = cnas.filter(location__icontains=location_filter)
+    if experience_filter:
+        cnas = cnas.filter(experience__icontains=experience_filter)
+    if hourly_rate_filter:
+        try:
+            cnas = cnas.filter(hourly_rate__lte=float(hourly_rate_filter))
+        except ValueError:
+            pass  # If the filter is not a valid number, ignore the filter
+
+    return render(request, 'cna_list.html', {'cnas': cnas})

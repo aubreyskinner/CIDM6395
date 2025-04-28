@@ -4,13 +4,39 @@
 
 {% block content %}
   <div class="home-content">
-    <h1>Send Request for Service</h1>
-    <p>Click the button below to submit your request.  
-       {{ cna.first_name }} will see this on their Notifications page.</p>
+    <h1>Service Request for {{ cna.first_name }} {{ cna.last_name }}</h1>
+    <p>Please fill out the details below to request services. This information will help them quickly determine if it's a good fit.</p>
 
     <form method="post">
       {% csrf_token %}
-      <button type="submit" class="cta-btn">Submit Request</button>
+      
+      <div class="form-group">
+        <label for="sender_name">Your Name:</label>
+        <input type="text" id="sender_name" name="sender_name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="sender_phone">Phone Number:</label>
+        <input type="text" id="sender_phone" name="sender_phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="care_location">Care Location (City, State):</label>
+        <input type="text" id="care_location" name="care_location" required>
+      </div>
+
+      <div class="form-group">
+        <label for="care_hours">Hours Needed:</label>
+        <input type="text" id="care_hours" name="care_hours" placeholder="e.g., M-F, 8 AM - 2 PM" required>
+      </div>
+
+      <div class="form-group">
+        <label for="care_needs">Care Needs (Brief Description):</label>
+        <textarea id="care_needs" name="care_needs" rows="3" placeholder="e.g., companionship, mobility assistance, bathing" required></textarea>
+      </div>
+
+      <button type="submit" class="cta-btn">Send Request</button>
     </form>
   </div>
 {% endblock %}
+

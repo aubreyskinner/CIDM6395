@@ -1,6 +1,7 @@
 from django import forms
 from .models import User  # Import your custom User model
 from django.contrib.auth.forms import UserCreationForm
+from .models import CNAListing
 
 class CustomUserCreationForm(UserCreationForm):
     account_type = forms.ChoiceField(
@@ -33,3 +34,8 @@ class CustomUserCreationForm(UserCreationForm):
             raise forms.ValidationError("Please select at least one profile type: CNA or Client.")
         
         return cleaned_data
+    
+class CNAListingForm(forms.ModelForm):
+    class Meta:
+        model = CNAListing
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'hourly_rate', 'experience', 'location', 'availability']
