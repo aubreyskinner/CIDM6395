@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from django.conf import settings
 
 
 class User(AbstractUser):
@@ -39,6 +39,7 @@ class Notification(models.Model):
         return f"Notification for {self.user.username}: {self.message[:20]}"
     
 class CNAListing(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='listings')  # <-- ADD THIS LINE
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()

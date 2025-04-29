@@ -52,14 +52,12 @@ def success(request):
 
 User = get_user_model()
 
+@login_required
 def contact_cna(request, cna_id):
-    cna = get_object_or_404(CNAListing, pk=cna_id)  # <-- Notice this is CNAListing now
+    cna = get_object_or_404(CNAListing, pk=cna_id)
 
     if request.method == 'POST':
-        try:
-            cna_user = User.objects.get(email=cna.email)  # Matching by email address
-        except User.DoesNotExist:
-            cna_user = None
+        cna_user = cna.user  # <-- DIRECTLY grab user from the CNAListing
 
         if cna_user:
             Notification.objects.create(
@@ -127,8 +125,17 @@ def client_dashboard(request):
 
 @login_required
 def create_listing(request):
-    # Logic for creating a listing
-    return render(request, 'create_listing.html')
+    if request.method == 'POST':
+        form = CNAListingForm(request.POST)
+        if form.is_valid():
+            listing = form.save(commit=False)  # Don't save immediately
+            listing.user = request.user        # Link the listing to the logged-in user
+            listing.save()                     # Now save
+            return redirect('cna_list')         # Redirect after saving
+    else:
+        form = CNAListingForm()
+
+    return render(request, 'create_listing.html', {'form': form})
 
 @login_required
 def cna_list(request):
@@ -138,17 +145,6 @@ def cna_list(request):
 from django.shortcuts import render, redirect
 from .models import CNAListing
 from .forms import CNAListingForm
-
-def create_listing(request):
-    if request.method == 'POST':
-        form = CNAListingForm(request.POST)
-        if form.is_valid():
-            form.save()  # Save the new CNAListing object
-            return redirect('cna_list')  # Redirect to the list of CNAs
-    else:
-        form = CNAListingForm()
-    
-    return render(request, 'create_listing.html', {'form': form})
 
 
 def cna_list(request):
