@@ -7,7 +7,6 @@
     <h2>Create CNA Listing</h2>
     <p>Fill out the form below to create a new listing for your services as a Certified Nursing Assistant (CNA). This will help connect you with families in need of care in your area.</p>
 
-    <!-- CNA Listing Form -->
     <form action="{% url 'create_listing' %}" method="POST">
       {% csrf_token %}
       

@@ -19,7 +19,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.contrib.auth import login
 from .forms import CNAListingForm
-from .models import CNAListing  # Make sure CNAListing is imported
+from .models import CNAListing  
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Notification
@@ -72,7 +72,6 @@ def contact_cna(request, cna_id):
             care_hours = request.POST.get('care_hours')
             care_needs = request.POST.get('care_needs')
 
-            # Now create a detailed notification
             full_message = (
                 f"New service request from {sender_name} ({sender_phone}):\n"
                 f"Location: {care_location}\n"
@@ -93,7 +92,6 @@ def contact_cna(request, cna_id):
 @login_required
 def notification_page(request):
     qs = Notification.objects.filter(user=request.user).order_by('-timestamp')
-    # mark all as read when the page is viewed
     qs.filter(is_read=False).update(is_read=True)
     return render(request, 'notifications.html', {'notifications': qs})
 
@@ -111,11 +109,9 @@ def register(request):
             user = form.save()
             login(request, user)
             
-            # Capture and print the account_type value
             account_type = form.cleaned_data.get('account_type')
-            print(f"Account Type selected: {account_type}")  # Debug print
+            print(f"Account Type selected: {account_type}") 
 
-            # Now handle different types based on the selected account type
             if account_type == 'CNA':
                 user.is_cna = True
                 user.is_client = False
@@ -130,7 +126,7 @@ def register(request):
                 print("Unexpected account type: ", account_type)
                 return redirect('home')
         else:
-            print("Form errors:", form.errors)  # Print errors to debug
+            print("Form errors:", form.errors) 
 
     else:
         form = CustomUserCreationForm()
@@ -138,21 +134,21 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 @login_required
 def cna_dashboard(request):
-    return render(request, 'cna_dashboard.html')  # Show CNA specific content
+    return render(request, 'cna_dashboard.html') 
 
 @login_required
 def client_dashboard(request):
-    return render(request, 'client_dashboard.html')  # Show Client specific content
+    return render(request, 'client_dashboard.html')  
 
 @login_required
 def create_listing(request):
     if request.method == 'POST':
         form = CNAListingForm(request.POST)
         if form.is_valid():
-            listing = form.save(commit=False)  # Don't save immediately
-            listing.user = request.user        # Link the listing to the logged-in user
-            listing.save()                     # Now save
-            return redirect('cna_list')         # Redirect after saving
+            listing = form.save(commit=False) 
+            listing.user = request.user       
+            listing.save()               
+            return redirect('cna_list')      
     else:
         form = CNAListingForm()
 
@@ -160,7 +156,6 @@ def create_listing(request):
 
 @login_required
 def cna_list(request):
-    # Logic for showing available CNAs
     return render(request, 'cna_list.html')
 
 from django.shortcuts import render, redirect
@@ -169,16 +164,14 @@ from .forms import CNAListingForm
 
 
 def cna_list(request):
-    cnas = CNAListing.objects.all()  # Fetch all CNA listings from the database
+    cnas = CNAListing.objects.all() 
     return render(request, 'cna_list.html', {'cnas': cnas})
 
 def cna_list(request):
-    # Get filter parameters from GET request
     location_filter = request.GET.get('location', '')
     experience_filter = request.GET.get('experience', '')
     hourly_rate_filter = request.GET.get('hourly_rate', '')
 
-    # Apply filters to the query if the filters are provided
     cnas = CNAListing.objects.annotate(
         avg_rating=Avg('reviews__rating'),
         review_count=Count('reviews')
@@ -192,16 +185,14 @@ def cna_list(request):
         try:
             cnas = cnas.filter(hourly_rate__lte=float(hourly_rate_filter))
         except ValueError:
-            pass  # If the filter is not a valid number, ignore the filter
+            pass 
 
     return render(request, 'cna_list.html', {'cnas': cnas})
 
 @login_required
 def cna_finance_dashboard(request):
-    # Only show jobs for the logged-in CNA
     jobs = WeeklyJobSummary.objects.filter(user=request.user).order_by('-week_of')
 
-    # Calculate total expected pay for all entries
     total_expected = sum(job.expected_pay for job in jobs)
 
     return render(request, 'cna_finance_dashboard.html', {
@@ -216,7 +207,7 @@ def add_job_summary(request):
         form = WeeklyJobSummaryForm(request.POST)
         if form.is_valid():
             job = form.save(commit=False)
-            job.user = request.user  # Assign to logged-in CNA
+            job.user = request.user  
             job.save()
             return redirect('cna_finance_dashboard')
     else:
@@ -237,7 +228,6 @@ def delete_job_summary(request, pk):
 def leave_review(request, cna_id):
     cna = get_object_or_404(CNAListing, pk=cna_id)
 
-    # Optional: Prevent duplicate reviews from the same user
     if Review.objects.filter(reviewer=request.user, cna=cna).exists():
         return redirect('contact_cna', cna_id=cna.id)
 
@@ -258,13 +248,9 @@ def leave_review(request, cna_id):
 def income_forecast(request):
     today = date.today()
     past_summaries = WeeklyJobSummary.objects.filter(user=request.user, week_of__lt=today)
-
-    # Calculate average weekly hours and pay rate
     avg_hours = past_summaries.aggregate(Avg('total_hours'))['total_hours__avg'] or 0
     avg_rate = past_summaries.aggregate(Avg('pay_rate'))['pay_rate__avg'] or 0
     forecast_pay = avg_hours * avg_rate
-
-    # Build the next 4 weeks of projected income
     upcoming_weeks = []
     for i in range(4):
         week_start = today + timedelta(weeks=i)

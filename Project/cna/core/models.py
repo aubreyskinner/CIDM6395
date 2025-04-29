@@ -40,7 +40,7 @@ class Notification(models.Model):
         return f"Notification for {self.user.username}: {self.message[:20]}"
     
 class CNAListing(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='listings')  # <-- ADD THIS LINE
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='listings') 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -56,7 +56,7 @@ class CNAListing(models.Model):
 User = get_user_model()
 
 class WeeklyJobSummary(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # CNA who owns this entry
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
     client_name = models.CharField(max_length=100)
     week_of = models.DateField(help_text="Start date of the week (e.g., Monday)")
     total_hours = models.DecimalField(max_digits=5, decimal_places=2)

@@ -1,5 +1,5 @@
 from django import forms
-from .models import User  # Import your custom User model
+from .models import User 
 from django.contrib.auth.forms import UserCreationForm
 from .models import CNAListing
 from .models import WeeklyJobSummary
@@ -14,10 +14,9 @@ class CustomUserCreationForm(UserCreationForm):
     )
 
     class Meta:
-        model = User  # Reference your custom User model here
+        model = User 
         fields = ['username', 'password1', 'password2', 'account_type']
 
-    # Add custom logic for password fields
     password1 = forms.CharField(
         widget=forms.PasswordInput(),
         label="Password",
@@ -31,7 +30,6 @@ class CustomUserCreationForm(UserCreationForm):
         cleaned_data = super().clean()
         account_type = cleaned_data.get("account_type")
         
-        # Ensure that at least one profile type is selected
         if not account_type:
             raise forms.ValidationError("Please select at least one profile type: CNA or Client.")
         

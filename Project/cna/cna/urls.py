@@ -26,7 +26,7 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('contact/', views.contact, name='contact'),
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),  # built-in login/logout
+    path('accounts/', include('django.contrib.auth.urls')), 
     path('', include('core.urls')),
     path('register/', views.register, name='register'),  
 ]

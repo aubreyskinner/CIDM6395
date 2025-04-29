@@ -3,7 +3,6 @@
 {% block content %}
 <h1 class="page-title">Available CNAs</h1>
 
-<!-- Filter Form -->
 <div class="filter-form">
   <form method="GET" action="{% url 'cna_list' %}">
     <div class="form-group">
@@ -18,7 +17,6 @@
   </form>
 </div>
 
-<!-- CNA Listings -->
 <div class="cna-container">
   {% for cna in cnas %}
     <div class="cna-card">
@@ -36,7 +34,6 @@
         <p><em>No reviews yet</em></p>
       {% endif %}
 
-      <!-- Action Buttons -->
       <div style="margin-top: 15px;">
         <a href="{% url 'contact_cna' cna.id %}" class="cta-btn" style="display:inline-block; margin-bottom:10px;">Contact This CNA</a>
         <a href="{% url 'leave_review' cna.id %}" class="cta-btn" style="display:inline-block;">Leave a Review</a>

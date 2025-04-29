@@ -9,8 +9,7 @@
     {% for note in notifications %}
       <div class="notification-card {% if not note.is_read %}unread{% endif %}">
         <div class="notification-content">
-          <!-- Main message body -->
-          <pre>{{ note.message }}</pre>  <!-- Preformatted to preserve line breaks -->
+          <pre>{{ note.message }}</pre>  
         </div>
         <div class="notification-footer">
           <small>{{ note.timestamp|date:"M d, Y H:i" }}</small>
