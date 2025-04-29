@@ -57,17 +57,32 @@ def contact_cna(request, cna_id):
     cna = get_object_or_404(CNAListing, pk=cna_id)
 
     if request.method == 'POST':
-        cna_user = cna.user  # <-- DIRECTLY grab user from the CNAListing
+        cna_user = cna.user
 
         if cna_user:
+            sender_name = request.POST.get('sender_name')
+            sender_phone = request.POST.get('sender_phone')
+            care_location = request.POST.get('care_location')
+            care_hours = request.POST.get('care_hours')
+            care_needs = request.POST.get('care_needs')
+
+            # Now create a detailed notification
+            full_message = (
+                f"New service request from {sender_name} ({sender_phone}):\n"
+                f"Location: {care_location}\n"
+                f"Hours Needed: {care_hours}\n"
+                f"Care Needs: {care_needs}"
+            )
+
             Notification.objects.create(
                 user=cna_user,
-                message=f"You have a new service request from {request.user.username}."
+                message=full_message
             )
 
         return redirect('success')
 
     return render(request, 'contact_cna.html', {'cna': cna})
+
 
 @login_required
 def notification_page(request):
