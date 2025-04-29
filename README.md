@@ -25,11 +25,11 @@ Highlights include:
 * ER diagrams, normalization, and relationship modeling
 * Classification model evaluation
 * Data sampling, subsetting, and integration
-* Emphasis on privacy, integrity, and real-world interoperability
+* Emphasis on privacy, integrity, and real-world interoperability<br><br>
 See [Data Management](DataManagement/README.md) for full reflection and examples.
 #### Networking and Cybersecurity (CN)
 Features work related to:
 * Security auditing, incident response, and network monitoring
 * Hands-on work with Wireshark, Nmap, and VPN configuration
-* Real-world applications in protecting data systems
+* Real-world applications in protecting data systems<br><br>
 See [Networking and Cybersecurity](NetworkAndCybersecurity/README.md) for full reflection and examples.
