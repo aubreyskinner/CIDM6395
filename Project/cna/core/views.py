@@ -15,6 +15,10 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.contrib.auth import login
 from .forms import CNAListingForm
+from .models import CNAListing  # Make sure CNAListing is imported
+from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import Notification
 
 
 
@@ -42,22 +46,6 @@ def cna_list(request):
     cnas = CNA.objects.all()
     return render(request, 'cna_list.html', {'cnas': cnas})
 
-def contact_cna(request, cna_id):
-    cna = get_object_or_404(CNA, pk=cna_id)
-
-    if request.method == 'POST':
-        # send a simple notification email to the CNA
-        send_mail(
-            subject=f"New Service Request",
-            message="You have a new request for service—please log in to view details.",
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[cna.email],
-            fail_silently=False,
-        )
-        return redirect('success')
-
-    return render(request, 'contact_cna.html', {'cna': cna})
-
 
 def success(request):
     return render(request, 'success.html')
@@ -65,12 +53,11 @@ def success(request):
 User = get_user_model()
 
 def contact_cna(request, cna_id):
-    cna = get_object_or_404(CNA, pk=cna_id)
+    cna = get_object_or_404(CNAListing, pk=cna_id)  # <-- Notice this is CNAListing now
 
     if request.method == 'POST':
-        # find the User account for this CNA (by email)
         try:
-            cna_user = User.objects.get(email=cna.email)
+            cna_user = User.objects.get(email=cna.email)  # Matching by email address
         except User.DoesNotExist:
             cna_user = None
 
