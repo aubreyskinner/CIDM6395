@@ -13,5 +13,5 @@ Contains a reflection of my experience with software development, including:
 * API creation using FastAPI and Django
 * Respository pattern implementations
 * CRUD operations and ERD modeling<br><br>
-See /SoftwareSystems/README.md for full reflection and examples.
+See [Software Systems](SoftwareSystems/README.md) for full reflection and examples.
 ####
