@@ -216,3 +216,11 @@ def add_job_summary(request):
         form = WeeklyJobSummaryForm()
 
     return render(request, 'add_job_summary.html', {'form': form})
+
+@login_required
+def delete_job_summary(request, pk):
+    job = get_object_or_404(WeeklyJobSummary, pk=pk, user=request.user)
+    if request.method == 'POST':
+        job.delete()
+        return redirect('cna_finance_dashboard')
+    return render(request, 'confirm_delete.html', {'job': job})
