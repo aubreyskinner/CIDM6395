@@ -3,6 +3,7 @@ from .models import CNA, ClientProfile
 from .serializers import CNASerializer, ClientProfileSerializer
 from django.shortcuts import render
 from .models import CNA
+from datetime import timedelta, date
 from .models import WeeklyJobSummary
 from django.db.models import Avg, Count
 from .forms import WeeklyJobSummaryForm
@@ -252,3 +253,31 @@ def leave_review(request, cna_id):
         form = ReviewForm()
 
     return render(request, 'leave_review.html', {'form': form, 'cna': cna})
+
+@login_required
+def income_forecast(request):
+    today = date.today()
+    past_summaries = WeeklyJobSummary.objects.filter(user=request.user, week_of__lt=today)
+
+    # Calculate average weekly hours and pay rate
+    avg_hours = past_summaries.aggregate(Avg('total_hours'))['total_hours__avg'] or 0
+    avg_rate = past_summaries.aggregate(Avg('pay_rate'))['pay_rate__avg'] or 0
+    forecast_pay = avg_hours * avg_rate
+
+    # Build the next 4 weeks of projected income
+    upcoming_weeks = []
+    for i in range(4):
+        week_start = today + timedelta(weeks=i)
+        upcoming_weeks.append({
+            'week': week_start,
+            'forecast_hours': round(avg_hours, 2),
+            'forecast_rate': round(avg_rate, 2),
+            'forecast_total': round(forecast_pay, 2),
+        })
+
+    return render(request, 'income_forecast.html', {
+        'upcoming_weeks': upcoming_weeks,
+        'avg_hours': avg_hours,
+        'avg_rate': avg_rate,
+        'forecast_pay': forecast_pay,
+    })

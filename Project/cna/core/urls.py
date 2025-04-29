@@ -30,6 +30,7 @@ urlpatterns = [
     path('cna-finance/delete/<int:pk>/', views.delete_job_summary, name='delete_job_summary'),
     path('cna/<int:cna_id>/review/', views.leave_review, name='leave_review'),
     path('cna/<int:cna_id>/review/', views.leave_review, name='leave_review'),
+    path('cna-forecast/', views.income_forecast, name='income_forecast'),
 
 
 

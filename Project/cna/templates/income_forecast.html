@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Income Forecast{% endblock %}
+
+{% block content %}
+  <div class="dashboard-wrapper">
+    <h2>4-Week Income Forecast</h2>
+    <p>Based on your past work: <br>
+    <strong>Average hours/week:</strong> {{ avg_hours|floatformat:1 }} |
+    <strong>Average rate:</strong> ${{ avg_rate|floatformat:2 }}</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Week Of</th>
+          <th>Projected Hours</th>
+          <th>Pay Rate</th>
+          <th>Expected Income</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for week in upcoming_weeks %}
+        <tr>
+          <td>{{ week.week }}</td>
+          <td>{{ week.forecast_hours }}</td>
+          <td>${{ week.forecast_rate }}</td>
+          <td>${{ week.forecast_total }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
