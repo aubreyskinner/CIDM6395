@@ -3,6 +3,8 @@ from .models import CNA, ClientProfile
 from .serializers import CNASerializer, ClientProfileSerializer
 from django.shortcuts import render
 from .models import CNA
+from .models import WeeklyJobSummary
+from .forms import WeeklyJobSummaryForm
 from .models import CNAListing
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail
@@ -186,3 +188,31 @@ def cna_list(request):
             pass  # If the filter is not a valid number, ignore the filter
 
     return render(request, 'cna_list.html', {'cnas': cnas})
+
+@login_required
+def cna_finance_dashboard(request):
+    # Only show jobs for the logged-in CNA
+    jobs = WeeklyJobSummary.objects.filter(user=request.user).order_by('-week_of')
+
+    # Calculate total expected pay for all entries
+    total_expected = sum(job.expected_pay for job in jobs)
+
+    return render(request, 'cna_finance_dashboard.html', {
+        'jobs': jobs,
+        'total_expected': total_expected,
+    })
+
+
+@login_required
+def add_job_summary(request):
+    if request.method == 'POST':
+        form = WeeklyJobSummaryForm(request.POST)
+        if form.is_valid():
+            job = form.save(commit=False)
+            job.user = request.user  # Assign to logged-in CNA
+            job.save()
+            return redirect('cna_finance_dashboard')
+    else:
+        form = WeeklyJobSummaryForm()
+
+    return render(request, 'add_job_summary.html', {'form': form})

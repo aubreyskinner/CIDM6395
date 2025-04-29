@@ -2,6 +2,7 @@ from django import forms
 from .models import User  # Import your custom User model
 from django.contrib.auth.forms import UserCreationForm
 from .models import CNAListing
+from .models import WeeklyJobSummary
 
 class CustomUserCreationForm(UserCreationForm):
     account_type = forms.ChoiceField(
@@ -39,3 +40,12 @@ class CNAListingForm(forms.ModelForm):
     class Meta:
         model = CNAListing
         fields = ['first_name', 'last_name', 'email', 'phone_number', 'hourly_rate', 'experience', 'location', 'availability']
+
+class WeeklyJobSummaryForm(forms.ModelForm):
+    class Meta:
+        model = WeeklyJobSummary
+        fields = ['client_name', 'week_of', 'total_hours', 'pay_rate', 'notes']
+        widgets = {
+            'week_of': forms.DateInput(attrs={'type': 'date'}),
+            'notes': forms.Textarea(attrs={'rows': 3}),
+        }

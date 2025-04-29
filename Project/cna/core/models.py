@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.contrib.auth import get_user_model
 
 
 class User(AbstractUser):
@@ -51,3 +52,20 @@ class CNAListing(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.location}"
+    
+User = get_user_model()
+
+class WeeklyJobSummary(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # CNA who owns this entry
+    client_name = models.CharField(max_length=100)
+    week_of = models.DateField(help_text="Start date of the week (e.g., Monday)")
+    total_hours = models.DecimalField(max_digits=5, decimal_places=2)
+    pay_rate = models.DecimalField(max_digits=6, decimal_places=2)
+    notes = models.TextField(blank=True)
+
+    @property
+    def expected_pay(self):
+        return round(self.total_hours * self.pay_rate, 2)
+
+    def __str__(self):
+        return f"{self.client_name} - Week of {self.week_of}"

@@ -25,5 +25,8 @@ urlpatterns = [
     path('client-dashboard/', views.client_dashboard, name='client_dashboard'),
     path('create-listing/', views.create_listing, name='create_listing'),
     path('', views.home, name='home'),
+    path('cna-finance/', views.cna_finance_dashboard, name='cna_finance_dashboard'),
+    path('cna-finance/add/', views.add_job_summary, name='add_job_summary'),
+
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

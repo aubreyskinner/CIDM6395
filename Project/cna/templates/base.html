@@ -19,6 +19,7 @@
         {% if user.is_authenticated %}
           {% if user.is_cna %}
             <li><a href="{% url 'create_listing' %}">Create Listing</a></li>
+            <li><a href="{% url 'cna_finance_dashboard' %}">Finance Tracker</a></li>
           {% elif user.is_client %}
             <li><a href="{% url 'cna_list' %}">Browse Available CNAs</a></li>
           {% endif %}
