@@ -4,6 +4,7 @@ from .serializers import CNASerializer, ClientProfileSerializer
 from django.shortcuts import render
 from .models import CNA
 from .models import WeeklyJobSummary
+from django.db.models import Avg, Count
 from .forms import WeeklyJobSummaryForm
 from .models import CNAListing
 from django.shortcuts import render, get_object_or_404, redirect
@@ -21,6 +22,8 @@ from .models import CNAListing  # Make sure CNAListing is imported
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Notification
+from .models import Review
+from .forms import ReviewForm
 
 
 
@@ -175,7 +178,10 @@ def cna_list(request):
     hourly_rate_filter = request.GET.get('hourly_rate', '')
 
     # Apply filters to the query if the filters are provided
-    cnas = CNAListing.objects.all()
+    cnas = CNAListing.objects.annotate(
+        avg_rating=Avg('reviews__rating'),
+        review_count=Count('reviews')
+    )
 
     if location_filter:
         cnas = cnas.filter(location__icontains=location_filter)
@@ -224,3 +230,25 @@ def delete_job_summary(request, pk):
         job.delete()
         return redirect('cna_finance_dashboard')
     return render(request, 'confirm_delete.html', {'job': job})
+
+
+@login_required
+def leave_review(request, cna_id):
+    cna = get_object_or_404(CNAListing, pk=cna_id)
+
+    # Optional: Prevent duplicate reviews from the same user
+    if Review.objects.filter(reviewer=request.user, cna=cna).exists():
+        return redirect('contact_cna', cna_id=cna.id)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.reviewer = request.user
+            review.cna = cna
+            review.save()
+            return redirect('cna_list')
+    else:
+        form = ReviewForm()
+
+    return render(request, 'leave_review.html', {'form': form, 'cna': cna})

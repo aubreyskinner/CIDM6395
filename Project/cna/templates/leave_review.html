@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Leave a Review{% endblock %}
+
+{% block content %}
+  <div class="dashboard-wrapper">
+    <h2>Leave a Review for {{ cna.first_name }} {{ cna.last_name }}</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="cta-btn">Submit Review</button>
+    </form>
+
+    <p><a href="{% url 'contact_cna' cna.id %}">← Back to Profile</a></p>
+  </div>
+{% endblock %}

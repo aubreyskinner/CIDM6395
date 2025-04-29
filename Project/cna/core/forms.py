@@ -3,6 +3,7 @@ from .models import User  # Import your custom User model
 from django.contrib.auth.forms import UserCreationForm
 from .models import CNAListing
 from .models import WeeklyJobSummary
+from .models import Review
 
 class CustomUserCreationForm(UserCreationForm):
     account_type = forms.ChoiceField(
@@ -48,4 +49,22 @@ class WeeklyJobSummaryForm(forms.ModelForm):
         widgets = {
             'week_of': forms.DateInput(attrs={'type': 'date'}),
             'notes': forms.Textarea(attrs={'rows': 3}),
+        }
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['rating', 'comment']
+        widgets = {
+            'rating': forms.Select(choices=[(i, str(i)) for i in range(1, 6)]),
+            'comment': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Optional comment'}),
+        }
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['rating', 'comment']
+        widgets = {
+            'rating': forms.Select(choices=[(i, f'{i} Stars') for i in range(1, 6)]),
+            'comment': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Optional comment'}),
         }

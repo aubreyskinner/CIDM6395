@@ -1,169 +1,175 @@
+/* Reset & Base */
 html, body {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  main {
-    flex: 1;
-    padding-bottom: 20px; /* optional extra space under content */
-  }
-  
-.site-nav {
-    background-color: #4a90e2;
-  }
-  
-  .site-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    justify-content: center;
-  }
-  
-  .site-nav li {
-    margin: 0 1rem;
-  }
-  
-  .site-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-  }
-  
-  .site-nav a:hover {
-    text-decoration: underline;
-  }
-  
-  .home-content {
-    text-align: center;
-    padding: 4rem 1rem;
-  }
-  
-  .home-content .logo {
-    font-size: 3rem;
-    color: #333;
-  }
-  
-  .home-content .brand-name {
-    color: #4a90e2;
-  }
-  
-  .home-content .tagline {
-    font-size: 1.5rem;
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  .cta-section {
-    margin-top: 30px;
-  }
-  
-  .cta-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #21bcff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    margin: 15px 0;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cta-btn:hover {
-    background-color: #199fdc;
-  }
-  
+  height: 100%;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
 
-  .page-title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .cna-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .cna-card {
-    background-color: #ffffff;
-    border: 2px solid #ddd;           /* Thicker, visible border */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 
-      transform 0.3s ease-in-out,     /* smooth lift */
-      border-color 0.3s ease,         /* border color change */
-      box-shadow 0.3s ease;           /* shadow change */
-  }
-  
-  .cna-card:hover {
-    transform: translateY(-8px);
-    border-color: #4a90e2;            /* highlight border on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* deeper shadow */
-    background-color: #f0f8ff;        /* very light blue background */
-  }
-  
-  
-  .cna-card h2 {
-    margin-top: 0;
-    color: #006d77;
-    font-size: 1.4rem;
-  }
-  
-  .cna-card p {
-    margin: 8px 0;
-    line-height: 1.5;
-  }
-  .cna-container .cna-card {
-    background-color: #ffffff;
-    border: 2px solid #ddd !important;           /* Added !important */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 
-      transform 0.3s ease-in-out,     /* smooth lift */
-      border-color 0.3s ease,         /* border color change */
-      box-shadow 0.3s ease;           /* shadow change */
-  }
-  
-  .cna-container .cna-card:hover {
-    transform: translateY(-8px);
-    border-color: #4a90e2 !important;            /* Added !important */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #f0f8ff;       
-  }
-  .cna-link {
-    text-decoration: none;
-    color: inherit;
+main {
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+/* Navigation */
+.site-nav {
+  background-color: #4a90e2;
+}
+
+.site-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.site-nav li {
+  margin: 0 1rem;
+}
+
+.site-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Home Content */
+.home-content {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.home-content .logo {
+  font-size: 3rem;
+  color: #333;
+}
+
+.home-content .brand-name {
+  color: #4a90e2;
+}
+
+.home-content .tagline {
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+.cta-section {
+  margin-top: 30px;
+}
+
+/* Buttons */
+.cta-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #21bcff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 30px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #199fdc;
+}
+
+.delete-btn {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #e04345;
+}
+
+/* Page Titles */
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+.cna-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  align-items: start; /* not stretch */
+}
+
+
+.cna-card {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.cna-card:hover {
+  transform: translateY(-8px);
+  border-color: #4a90e2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
+}
+
+.cna-card h2 {
+  margin-top: 0;
+  color: #006d77;
+  font-size: 1.4rem;
+}
+
+.cna-card p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.cna-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .cna-link:hover .cna-card {
-    background-color: #f0f0f0;
-    transition: background-color 0.3s;
+  background-color: #f0f0f0;
 }
-/* Wrapper to help with centering */
+
+/* Forms */
 .form-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  margin: 0; /* Ensure no extra space */
+  height: 100vh;
+  margin: 0;
 }
 
 .form-container {
   width: 100%;
-  max-width: 400px; /* A max width for the form */
+  max-width: 400px;
   padding: 25px;
   background-color: #f9f9f9;
   border-radius: 12px;
@@ -196,26 +202,12 @@ html, body {
   box-sizing: border-box;
 }
 
-.cta-btn {
-  width: 60%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 0;
-  border: none;
-  border-radius: 6px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.cta-btn:hover {
-  background-color: #45a049;
-}
-
 .form-container p {
   margin-top: 15px;
   font-size: 14px;
 }
+
+/* Signup */
 .signup-container {
   width: 100%;
   max-width: 400px;
@@ -233,13 +225,6 @@ html, body {
   color: #333;
 }
 
-/* Form Inputs */
-.signup-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .signup-form input,
 .signup-form select {
   width: 100%;
@@ -247,11 +232,9 @@ html, body {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-sizing: border-box;
   font-size: 16px;
 }
 
-/* Submit Button */
 .signup-btn {
   background-color: #28a745;
   color: white;
@@ -267,27 +250,49 @@ html, body {
   background-color: #218838;
 }
 
-/* Add responsiveness for small screens */
-@media (max-width: 600px) {
-  .signup-container {
-    padding: 20px;
-  }
-}
+/* Dashboard */
 .dashboard-wrapper {
-  display: flex;
-  justify-content: center;  /* Centers content horizontally */
-  align-items: center;  /* Centers content vertically */
-  height: 100vh;  /* Full viewport height */
-  margin: 0;
-  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.dashboard-content {
-  width: 80%;  /* Adjust width as needed */
-  max-width: 1200px;  /* Prevent content from being too wide on large screens */
-  padding: 20px;  /* Adds padding around the content */
-  box-sizing: border-box;
+.dashboard-wrapper h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
+
+.dashboard-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.dashboard-wrapper th,
+.dashboard-wrapper td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.dashboard-wrapper th {
+  background-color: #f5f7fa;
+  font-weight: bold;
+}
+
+.dashboard-wrapper tr:hover {
+  background-color: #f9fbff;
+}
+
+.dashboard-wrapper p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Services */
 .services-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -310,23 +315,7 @@ html, body {
   margin-top: 10px;
 }
 
-.cta-btn {
-  width: 60%;
-  background-color: #21bcff;
-  color: white;
-  padding: 15px 25px; /* <- changed! */
-  border: none;
-  border-radius: 10px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 30px;
-  text-align: center;
-}
-
-
-.cta-btn:hover {
-  background-color: #f9992c;
-}
+/* Contact */
 .contact-content {
   padding: 20px;
   text-align: center;
@@ -390,6 +379,8 @@ html, body {
 .contact-form button:hover {
   background-color: #357ab7;
 }
+
+/* About */
 .about-content {
   padding: 20px;
   max-width: 800px;
@@ -426,15 +417,41 @@ html, body {
   color: #4a90e2;
 }
 
-@media (max-width: 600px) {
-  .about-content h3 {
-    font-size: 1.6rem;
-  }
-
-  .about-content p {
-    font-size: 1rem;
-  }
+/* Notifications */
+.notifications-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
 }
+
+.notification-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.notification-card.unread {
+  background: #eef6ff;
+  border-color: #3b82f6;
+}
+
+.notification-content {
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.notification-footer {
+  text-align: right;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Filters */
 .filter-form {
   margin-bottom: 20px;
   padding: 10px;
@@ -463,125 +480,18 @@ html, body {
 .filter-form button:hover {
   background-color: #0056b3;
 }
-.notifications-page {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
-.notification-card {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
+/* Responsive */
+@media (max-width: 600px) {
+  .signup-container {
+    padding: 20px;
+  }
 
-.notification-card.unread {
-  background: #eef6ff;
-  border-color: #3b82f6;
-}
+  .about-content h3 {
+    font-size: 1.6rem;
+  }
 
-.notification-content {
-  white-space: pre-wrap; /* This makes line breaks and spacing work inside <pre> */
-  font-family: inherit;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.notification-footer {
-  text-align: right;
-  font-size: 12px;
-  color: #666;
-}
-.notifications-page {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.notification-card {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
-
-.notification-card.unread {
-  background: #eef6ff;
-  border-color: #3b82f6;
-}
-
-.notification-content {
-  white-space: pre-wrap; /* This makes line breaks and spacing work inside <pre> */
-  font-family: inherit;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.notification-footer {
-  text-align: right;
-  font-size: 12px;
-  color: #666;
-}
-.dashboard-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.dashboard-wrapper h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.dashboard-wrapper table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.dashboard-wrapper th,
-.dashboard-wrapper td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.dashboard-wrapper th {
-  background-color: #f5f7fa;
-  font-weight: bold;
-}
-
-.dashboard-wrapper tr:hover {
-  background-color: #f9fbff;
-}
-
-.dashboard-wrapper .cta-btn {
-  margin-bottom: 20px;
-}
-
-.dashboard-wrapper p {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-.delete-btn {
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.delete-btn:hover {
-  background-color: #e04345;
+  .about-content p {
+    font-size: 1rem;
+  }
 }

@@ -21,7 +21,6 @@
 <!-- CNA Listings -->
 <div class="cna-container">
   {% for cna in cnas %}
-  <a href="{% url 'contact_cna' cna.id %}" class="cna-link">
     <div class="cna-card">
       <h2>{{ cna.first_name }} {{ cna.last_name }}</h2>
       <p><strong>Email:</strong> {{ cna.email }}</p>
@@ -30,11 +29,21 @@
       <p><strong>Experience:</strong> {{ cna.experience }}</p>
       <p><strong>Location:</strong> {{ cna.location }}</p>
       <p><strong>Availability:</strong> {{ cna.availability|json_script:"availability" }}</p>
+
+      {% if cna.review_count > 0 %}
+        <p><strong>Average Rating:</strong> {{ cna.avg_rating|floatformat:1 }}★ ({{ cna.review_count }} review{{ cna.review_count|pluralize }})</p>
+      {% else %}
+        <p><em>No reviews yet</em></p>
+      {% endif %}
+
+      <!-- Action Buttons -->
+      <div style="margin-top: 15px;">
+        <a href="{% url 'contact_cna' cna.id %}" class="cta-btn" style="display:inline-block; margin-bottom:10px;">Contact This CNA</a>
+        <a href="{% url 'leave_review' cna.id %}" class="cta-btn" style="display:inline-block;">Leave a Review</a>
+      </div>
     </div>
-  </a>
   {% empty %}
-  <p>No CNAs are currently available.</p>
+    <p>No CNAs are currently available.</p>
   {% endfor %}
 </div>
-
 {% endblock %}

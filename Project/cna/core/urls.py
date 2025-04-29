@@ -28,6 +28,8 @@ urlpatterns = [
     path('cna-finance/', views.cna_finance_dashboard, name='cna_finance_dashboard'),
     path('cna-finance/add/', views.add_job_summary, name='add_job_summary'),
     path('cna-finance/delete/<int:pk>/', views.delete_job_summary, name='delete_job_summary'),
+    path('cna/<int:cna_id>/review/', views.leave_review, name='leave_review'),
+    path('cna/<int:cna_id>/review/', views.leave_review, name='leave_review'),
 
 
 
