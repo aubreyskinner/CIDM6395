@@ -1,22 +1,39 @@
 # CISBACapstone
 Project repository for CIDM6395
 
-### Project Proposal
-#### Project Idea:
-Develop a web-based marketplace and financial management platform for Certified Nursing Assistants (CNAs), with features that serve both CNAs and clients. The system will function like Craigslist but tailored for home healthcare. It will offer: <br>
-• CNA profiles with credentials, rates, availability, location, and experience
-• Client search and booking based on needs, time, and location
-• Job scheduling and payment scheduling 
-• Financial tracker for CNAs to manage income and expenses
-#### Problems Addressed:
-CNAs often juggle irregular hours, multiple clients, and out-of-pocket expenses. Current tools such as spreadsheets and calculators do not offer industry-specific insights; there is no unified platform for connecting clients and CNAs directly that also adds the layer of financial tracking. 
-#### Expanded Scope:
-* Multiple user types: CNAs and clients
-* Tools Included: Reviews/ ratings, availability management, and price estimators
-* Forecasting and Analytics: Predict demand and/or client trends to see how much work might be available next month
-* Shared System: Encourages long-term client-provider relationships, repeat business, and trust
-#### Circular Areas Addressed: 
-1. Software Systems: web application using HTML/CSS/JavaScript (frontend) and Python (FastAPI or Django) (backend). A MySQL database will be used for secure storage of user data and service logs. 
-2. Business Analytics: CNA dashboard with visual insights- income spent on job-related expenses, average income per week/month, forecast available work. Client-side analytics for reviews, booking, and service cost.
-3. Data Management: Secure, scalable storage for CNA and client profiles, income/expense tracking entries, and review and rating history. 
-
+## Project: Linkella
+### Overview
+Linkella is a web-based platform that connects Certified Nursing Assistants (CNAs) with clients who need in-home care services. The system functions like a localized healthcare marketplace, where CNAs can create listings to advertise themselves, and clients can search, filter, and contact CNAs based on their needs. <br>
+The system also includes a financial tracker and forecasting tool, allowing CNAs to log weekly job summaries, estimate their upcoming income, and manage their care business more efficiently. <br>
+This project was developed as the Capstone for the MSCISBA program. It synthesizes concepts from Software Systems, Business Analytics, and Data Management. 
+### Purpose and Problem Addressed
+Home healthcare CNAs often work independently, juggling multiple clients, hours, and different streams of income. However, no centralized tool exists to:
+* Connect CNAs with clients efficiently
+* Allow CNAs to manage their listings, hours, and finances
+* Help clients make informed choices using ratings and reviews<br><br>
+<b>Linkella solves this by combining marketplace functionality with financial tracking tools all within a secure, role-based Django web application.</b>
+### Key Features
+####  For CNAs:
+* Create and manage listings (name, location, hourly rate, availability, experience)
+* Receive real-time service requests from clients via internal notifications
+* Access a financial dashboard  to log weekly job summaries
+* View projected income via automated 4-week forecast
+* Secure login and registration system- dashboard features tailored to the user type selected at signup
+#### For Clients:
+* Browse and filter available CNA listings by location and hourly rate
+* Contact CNAs via servive reuqest form
+* Leave ratings and written reviews for CNAs
+### Project Highlights
+* <b>User Authentication:</b> with role-based dashboards (CNA vs. Client)
+* <b>Dynamic Forms:</b> for listing creation, service requests, and reviews
+* <b>Internal Notification System:</b> for CNA alerts
+* <b>Review and Rating System:</b> directly tied  to CNA listings
+* <b>Forecast Engine:</b> using job data to predict future income
+* <b>Responsive Design:</b> clean UI/UX
+### Technologies Used
+* Backend: Django, Django REST Framework
+* Frontend: HTML, CSS, JavaScript
+* Database: SQLite
+* Authentication: Django's built-in user model + custom roles
+### Project Structure
+The project uses standard Django structure with modular apps, templates, and static files. All core logic resides in the `core/` app.
