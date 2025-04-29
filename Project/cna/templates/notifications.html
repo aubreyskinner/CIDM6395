@@ -3,17 +3,22 @@
 {% block title %}Notifications{% endblock %}
 
 {% block content %}
-  <div class="home-content">
+  <div class="notifications-page">
     <h1>Your Notifications</h1>
-    <ul class="notification-list">
-      {% for note in notifications %}
-        <li class="{% if not note.is_read %}unread{% endif %}">
-          <p>{{ note.message }}</p>
+
+    {% for note in notifications %}
+      <div class="notification-card {% if not note.is_read %}unread{% endif %}">
+        <div class="notification-content">
+          <!-- Main message body -->
+          <pre>{{ note.message }}</pre>  <!-- Preformatted to preserve line breaks -->
+        </div>
+        <div class="notification-footer">
           <small>{{ note.timestamp|date:"M d, Y H:i" }}</small>
-        </li>
-      {% empty %}
-        <p>No notifications at this time.</p>
-      {% endfor %}
-    </ul>
+        </div>
+      </div>
+    {% empty %}
+      <p>No notifications at this time.</p>
+    {% endfor %}
   </div>
 {% endblock %}
+
