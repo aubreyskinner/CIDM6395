@@ -1,10 +1,9 @@
-## License & Usage
+License & Usage
 
-This project is the intellectual property of **Aubrey Skinner** and was developed as part of the MS-CISBA Capstone at **West Texas A&M University**.
+This project is the intellectual property of Aubrey Skinner and was developed as part of the MS-CISBA Capstone at West Texas A&M University.
 
-It is shared publicly for **educational and demonstration purposes only**.
+It is shared publicly for educational and demonstration purposes only.
 
-- **You may** view the source code and project structure.
-- **You may not** copy, reuse, modify, or distribute any part of this project for commercial or personal use without **explicit written permission**.
+You may view the source code and project structure.
+You may not copy, reuse, modify, or distribute any part of this project for commercial or personal use without explicit written permission.
 
-If you're interested in referencing or collaborating on this project, please contact me via [LinkedIn](https://www.linkedin.com/in/aubreyskinner).
