@@ -37,3 +37,5 @@ Home healthcare CNAs often work independently, juggling multiple clients, hours,
 * Authentication: Django's built-in user model + custom roles
 ### Project Structure
 The project uses standard Django structure with modular apps, templates, and static files. All core logic resides in the `core/` app.
+## License & Usage
+This project is the intellectual property of **Aubrey Skinner** ...
